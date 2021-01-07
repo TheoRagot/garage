@@ -2,9 +2,10 @@
 
 namespace App;
 
-class Car
+class Sapin
 {
-    public string $name;
+    protected String $name;
+    protected int $prix = 5;
 
     public function __construct(string $name)
     {
