@@ -4,12 +4,13 @@ namespace App;
 
 class Voiture extends Vehicule implements Article 
 {
-    protected int $nbKm;
-    protected int $dateCration;
+    public int $nbKm;
+    public int $dateCreation;
+    public int $usure = 0;
 
-    protected function caclUsure(): int
+    public function caclUsure(): int
     {
-        return $this->$nbKm * (date("Y")-$dateCreation);
+        return $usure =$this->nbKm * (date("Y")-$this->dateCreation);
     }
     public function givePop(): bool
     {
@@ -24,11 +25,19 @@ class Voiture extends Vehicule implements Article
         return $this->givPop();
     }
     public function getTarif(): int {
-        return $this->prix + ($this->volume * 10);
+        return $this->prix / ($this->nbKm * (date("Y")-$this->dateCreation)) ;
     }
-    public function getTName(): int {
-        return $this->name + $this->nameMarque ;
+    public function giveName(): string {
+        return $this->nameMarque ."-"  .$this->name ;
     }
 
-    //public function __construct(int $nbKm, int $dateCreation, string $name, int $prix): void {}
+    public function __construct(int $dateCreation, int $nbKm, string $nameMarque, string $name, int $prix )
+    {
+        $this->name = $name;
+        $this->dateCreation = $dateCreation;
+        $this->nbKm = $nbKm;
+        $this->nameMarque = $nameMarque;
+        $this->name = $name;
+        $this->prix = $prix;
+    }
 }

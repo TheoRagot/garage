@@ -4,8 +4,8 @@ namespace App;
 
 class Sapin
 {
-    protected String $name;
-    protected int $prix = 5;
+    public String $name;
+    protected int $prix;
 
     public function __construct(string $name)
     {

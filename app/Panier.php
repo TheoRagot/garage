@@ -9,6 +9,9 @@ class Panier
 
     protected function giveFacture(): array
     {
-        return array([implode($article),array_sum($somme) ]);
+        return array([implode($article),array_sum($prix) ]);
+    }
+    public function giveName(): string {
+        return $this->name ;
     }
 }

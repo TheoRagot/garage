@@ -4,10 +4,11 @@ namespace App;
 
 class Utilitaire extends Vehicule implements Article 
 {
-    protected int $nbKm;
-    protected int $volume;
+    public int $nbKm;
+    public int $volume;
 
-    public function givePop(): bool
+
+    public function givePopularity(): bool
     {
         if($this->volume>11){
             return true;
@@ -15,19 +16,20 @@ class Utilitaire extends Vehicule implements Article
             return false;
         }
     }
-    public function givePopularity(): bool
-    {
-        return $this->givPop();
-    }
     public function getTarif(): int {
         return $this->prix + ($this->volume * 10);
     }
-    public function getTName(): int {
-        return $this->name + $this->nameMarque ;
+    public function giveName(): string {
+        return $this->nameMarque ."-"  .$this->name ;
     }
 
-    public function __construct(string $name)
+    public function __construct(int $volume, int $nbKm, string $nameMarque, string $name, int $prix )
     {
         $this->name = $name;
+        $this->volume = $volume;
+        $this->nbKm = $nbKm;
+        $this->nameMarque = $nameMarque;
+        $this->name = $name;
+        $this->prix = $prix;
     }
 }
